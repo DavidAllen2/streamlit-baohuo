@@ -55,7 +55,7 @@ def clean_old_logs():
 clean_old_logs()
 
 try:
-    driver.get("https://onlyno999.streamlit.app/")
+    driver.get("https://pingmike.streamlit.app/")
     time.sleep(10)  # 等待页面加载
 
     # 查找按钮
