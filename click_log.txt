@@ -71,3 +71,4 @@ Stacktrace:
 #18 0x7f6e9da9caa4 <unknown>
 #19 0x7f6e9db29c3c <unknown>
 
+[2025-06-16 04:40:37] 未发现按钮，未执行点击
