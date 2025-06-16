@@ -47,3 +47,4 @@ Stacktrace:
 #17 0x7f3075a9caa4 <unknown>
 #18 0x7f3075b29c3c <unknown>
 
+[2025-06-16 04:21:57] 错误：name 'WebDriverWait' is not defined
