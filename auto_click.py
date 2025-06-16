@@ -55,7 +55,6 @@ def clean_old_logs():
 clean_old_logs()
 
 try:
-    driver = webdriver.Chrome()  # 或用你已有的 driver 配置
     driver.get("https://pingmike.streamlit.app/")
     
     # 等待“启动部署”按钮出现并可点击
