@@ -6,22 +6,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from datetime import datetime, timedelta
-import time
 import os
 
-# 日志文件路径与保留天数
+# 日志配置
 log_file = "click_log.txt"
 log_retention_days = 2
-
-# 无头浏览器设置
-options = Options()
-options.add_argument('--headless')
-options.add_argument('--no-sandbox')
-options.add_argument('--disable-dev-shm-usage')
-
-# 初始化 Chrome Driver（仅一次）
-service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service, options=options)
 
 # 清理旧日志
 def clean_old_logs():
@@ -31,8 +20,8 @@ def clean_old_logs():
         with open(log_file, "r", encoding="utf-8") as f:
             lines = f.readlines()
 
-        cleaned_lines = []
         cutoff = datetime.now() - timedelta(days=log_retention_days)
+        cleaned_lines = []
 
         for line in lines:
             if line.startswith("["):
@@ -52,18 +41,28 @@ def clean_old_logs():
     except Exception as e:
         print(f"日志清理失败：{e}")
 
-# 执行主逻辑
-clean_old_logs()
+# 初始化浏览器
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 
+driver = None
+
+# 主逻辑
+clean_old_logs()
 try:
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
+
     driver.get("https://pingmike.streamlit.app/")
 
-    # 等待“启动部署”按钮出现并可点击
+    # 等待按钮可点击
     WebDriverWait(driver, 15).until(
         EC.element_to_be_clickable((By.XPATH, "//button[contains(., '启动部署')]"))
     )
 
-    # 查找并点击按钮
+    # 查找按钮
     buttons = driver.find_elements(By.XPATH, "//button[contains(., '启动部署')]")
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -85,5 +84,10 @@ except Exception as e:
     with open(log_file, "a", encoding="utf-8") as f:
         f.write(error_msg)
 
+    # 截图保存（方便排查 GitHub Actions 环境问题）
+    if driver:
+        driver.save_screenshot("error_screenshot.png")
+
 finally:
-    driver.quit()
+    if driver:
+        driver.quit()
