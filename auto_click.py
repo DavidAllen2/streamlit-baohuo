@@ -55,11 +55,15 @@ def clean_old_logs():
 clean_old_logs()
 
 try:
+    driver = webdriver.Chrome()  # 或用你已有的 driver 配置
     driver.get("https://pingmike.streamlit.app/")
-    time.sleep(10)  # 等待页面加载
+    
+    # 等待“启动部署”按钮出现并可点击
+    WebDriverWait(driver, 15).until(
+        EC.element_to_be_clickable((By.XPATH, "//button[contains(., '启动部署')]"))
+    )
 
-    # 查找按钮
-    buttons = driver.find_elements(By.XPATH, "//button[contains(text(), 'get this app back up')]")
+    buttons = driver.find_elements(By.XPATH, "//button[contains(., '启动部署')]")
 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if buttons:
