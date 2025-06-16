@@ -25,3 +25,25 @@ Stacktrace:
 #17 0x7fd4b489caa4 <unknown>
 #18 0x7fd4b4929c3c <unknown>
 
+[2025-06-16 04:19:00] 错误：Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x559f0319dc4a <unknown>
+#1 0x559f02c436e0 <unknown>
+#2 0x559f02c7e0b2 <unknown>
+#3 0x559f02c7924f <unknown>
+#4 0x559f02cc98b6 <unknown>
+#5 0x559f02cc8f76 <unknown>
+#6 0x559f02cbac03 <unknown>
+#7 0x559f02c8747b <unknown>
+#8 0x559f02c880e1 <unknown>
+#9 0x559f031623fb <unknown>
+#10 0x559f0316632f <unknown>
+#11 0x559f03149f39 <unknown>
+#12 0x559f03166ec8 <unknown>
+#13 0x559f0312e68f <unknown>
+#14 0x559f0318b2b8 <unknown>
+#15 0x559f0318b496 <unknown>
+#16 0x559f0319cb26 <unknown>
+#17 0x7f3075a9caa4 <unknown>
+#18 0x7f3075b29c3c <unknown>
+
