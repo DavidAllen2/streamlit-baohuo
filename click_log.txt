@@ -3,3 +3,25 @@
 [2025-06-15 12:41:59] 未发现按钮，未执行点击
 [2025-06-16 00:44:52] 未发现按钮，未执行点击
 [2025-06-16 03:54:17] 未发现按钮，未执行点击
+[2025-06-16 04:16:52] 错误：Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x55aab833ec4a <unknown>
+#1 0x55aab7de46e0 <unknown>
+#2 0x55aab7e1f0b2 <unknown>
+#3 0x55aab7e1a24f <unknown>
+#4 0x55aab7e6a8b6 <unknown>
+#5 0x55aab7e69f76 <unknown>
+#6 0x55aab7e5bc03 <unknown>
+#7 0x55aab7e2847b <unknown>
+#8 0x55aab7e290e1 <unknown>
+#9 0x55aab83033fb <unknown>
+#10 0x55aab830732f <unknown>
+#11 0x55aab82eaf39 <unknown>
+#12 0x55aab8307ec8 <unknown>
+#13 0x55aab82cf68f <unknown>
+#14 0x55aab832c2b8 <unknown>
+#15 0x55aab832c496 <unknown>
+#16 0x55aab833db26 <unknown>
+#17 0x7fd4b489caa4 <unknown>
+#18 0x7fd4b4929c3c <unknown>
+
