@@ -56,9 +56,9 @@ clean_old_logs()
 
 # 主逻辑开始
 try:
-    driver.get("https://onlyno999.streamlit.app/")
-    print("已打开网页，等待页面加载 30 秒...")
-    time.sleep(30)  # 初次加载等待
+    driver.get("https://frsgrx.streamlit.app/")
+    print("已打开网页，等待页面加载 45 秒...")
+    time.sleep(45)  # 初次加载等待
 
     # 查找按钮
     buttons = driver.find_elements(By.XPATH, "//button[contains(text(), 'get this app back up')]")
